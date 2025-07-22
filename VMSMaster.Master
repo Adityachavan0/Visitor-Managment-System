@@ -1,0 +1,173 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="VMSMaster.master.cs" Inherits="VMS.VMSMaster" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>VMS Portal</title>
+    
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        a .logo {
+            height: 40px;
+            margin-right: 10px;
+        }
+        footer h1{
+    font-size:25px;
+}
+
+.fab{
+    min-height:10px;
+    font-size:20px;
+    height:15px;
+    width:20px;
+    border-radius:50%;
+}
+ .table th {
+     white-space: nowrap;
+     background-color: red;
+     text-align: center;
+     color:white;
+ }
+
+        a{
+            color:white;
+            text-decoration:none;
+        }
+        .navbar {
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 2px 8px rgba(31,38,135,0.08);
+        }
+        social-icons {
+            margin-top: 10px;
+        }
+        .social-icons a {
+            display: inline-block;
+            margin: 0 8px;
+            padding: 8px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            color: #fff;
+            background: #343a40;
+            transition: border-color 0.2s, color 0.2s;
+            font-size: 22px;
+        }
+        .social-icons a:hover {
+            border-color: orange;
+            color: orange;
+            background: #222;
+            text-decoration: none;
+        }
+        body {
+            background: #f4f8fb;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .main-content {
+            margin-top: 80px;
+            flex: 1;
+        }
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+        .nav-item .nav-link:active{
+            color:orange !important;
+        }
+    </style>
+    <script>
+    // Automatically add 'active' class to the current nav-link
+    document.addEventListener("DOMContentLoaded", function () {
+        var links = document.querySelectorAll('.navbar-nav .nav-link');
+        var currentUrl = window.location.pathname.toLowerCase();
+        links.forEach(function (link) {
+            if (link.getAttribute('href') && currentUrl.indexOf(link.getAttribute('href').toLowerCase()) !== -1) {
+                link.classList.add('active');
+            }
+        });
+    });
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="Home.aspx">
+                    <a href="dashboard.aspx"><img class="logo" src="img/logo.png" alt="Logo" /></a>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="dash.aspx">Home</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="Home.aspx">Check In/Out</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="userList.aspx">Admin</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Contact.aspx">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="frmLogOut.aspx">Logout</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="changePass.aspx">Change Password</a>
+                        </li>
+
+                        <!-- Add more nav items as needed -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container main-content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <!-- 👇 Footer added here -->
+        <footer style="margin-top:30px">
+            <div style="display:flex;justify-content:space-evenly">
+                <div>
+                    <h1>MP TECH SOLUTIONS</h1>
+                    <li>Lonavala</li>
+                    <li>Pune</li>
+                    <b>Phone:</b><a href="tel:7887718325">+91 7887718325</a><br />
+                    <b>Email:</b><a href="mailto:mptechsolutions01@gmail.com">mptechsolutions01@gmail.com</a><br />
+
+                </div>
+                <div>
+                    <h1>Follow Us</h1>
+<h5>Follow Our Official Pages</h5>
+                    <div class="social-icons">
+    <a href="https://twitter.com/" target="_blank" title="Twitter (X)"><i class="fab fa-x-twitter"></i></a>
+    <a href="https://facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://instagram.com/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://linkedin.com/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+</div>
+                </div>
+            </div>
+            <hr />
+            <div class="container">
+                &copy; <%= DateTime.Now.Year %> VMS Portal. All rights reserved.
+            </div>
+        </footer>
+
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
